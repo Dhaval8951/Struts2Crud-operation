@@ -1,0 +1,28 @@
+/* body {
+	background-color: #808080;
+	border: 2px dashed;
+	text-align: center;
+	align-self: auto;
+}
+
+.button2 {
+	background-color: #008CBA;
+} Blue
+ */
+.center {
+	margin: auto;
+	width: 30%;
+	border: 3px solid green;
+	padding: 10px;
+	border-width: 5px;
+	border-radius: 50px;
+}
+
+#login {
+	background-color: #008CBA;
+}
+
+button {
+	background-color: #008CBA;
+	margin-left: 225px;
+}

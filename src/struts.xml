@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+"http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="default" extends="struts-default">
+
+		<interceptors>
+			<interceptor name="ValidSession"
+				class="com.struts2crud.Interceptor.ValidSession"></interceptor>
+		</interceptors>
+		<global-results>
+			<result name="input" type="redirect">/Login.jsp</result>
+		</global-results>
+
+		<action name="RegisterAction"
+			class="com.struts2crud.Action.UserAction" method="registerUser">
+			<result name="REGISTER">/register.jsp</result>
+			<result name="LOGIN">/Login.jsp</result>
+		</action>
+
+		<action name="ReportAction"
+			class="com.struts2crud.Action.UserAction" method="fetchAllUsers">
+			<interceptor-ref name="params"></interceptor-ref>
+			<interceptor-ref name="ValidSession"></interceptor-ref>
+			<result name="REPORT">/home.jsp</result>
+		</action>
+
+		<action name="UpdateAction"
+			class="com.struts2crud.Action.UserAction" method="updateUser">
+			<interceptor-ref name="params"></interceptor-ref>
+			<interceptor-ref name="ValidSession"></interceptor-ref>
+			<result name="UPDATE">/update.jsp</result>
+			<result name="REPORT" type="redirectAction">/ReportAction</result>
+
+		</action>
+		<action name="DeleteAction"
+			class="com.struts2crud.Action.UserAction" method="deleteUser">
+			<interceptor-ref name="params"></interceptor-ref>
+			<interceptor-ref name="ValidSession"></interceptor-ref>
+			<result name="DELETE">/delete.jsp</result>
+		</action>
+
+		<action name="SearchUser"
+			class="com.struts2crud.Action.UserAction" method="searchUser">
+			<interceptor-ref name="params"></interceptor-ref>
+			<interceptor-ref name="ValidSession"></interceptor-ref>
+			<result name="RESULT">/search.jsp</result>
+		</action>
+		<action name="ValidateUserLogin"
+			class="com.struts2crud.Action.UserAction" method="validateUserLogin">
+			<result name="success" type="redirectAction">ReportAction</result>
+			<result name="input">/Login.jsp</result>
+		</action>
+		<action name="LogoutAction"
+			class="com.struts2crud.Action.UserAction" method="LogoutAction">
+			<result name="LOGOUT">/Login.jsp</result>
+		</action>
+
+	</package>
+</struts>

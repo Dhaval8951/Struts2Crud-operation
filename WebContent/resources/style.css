@@ -1,0 +1,14 @@
+.button-register {
+	background-color: green;
+	color: white;
+}
+
+#button-logout {
+	margin-top: 10px;
+	margin-right: 20px;
+	position: absolute;
+	top: 0;
+	right: 0;
+	background-color: green;
+	color: white;
+}
